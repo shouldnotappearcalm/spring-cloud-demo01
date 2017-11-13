@@ -22,7 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/chat")
+                .defaultSuccessUrl("/chat")//设置登录成功后的路径
                 .permitAll()
                 .and()
                 .logout()
@@ -38,6 +38,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("wisely").password("wisely").roles("USER");
     }
 
+    /**
+     * 配置静态资源
+     * @param web
+     * @throws Exception
+     */
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/resources/static/**");
